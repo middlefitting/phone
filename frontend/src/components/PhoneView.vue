@@ -29,6 +29,7 @@
                 { text: "imeiLockStatus", value: "imeiLockStatus" },
                 { text: "lockStatus", value: "lockStatus" },
                 { text: "phoneChangeStatus", value: "phoneChangeStatus" },
+                { text: "lostPhoneId", value: "lostPhoneId" },
             ],
             phone : [],
         }),

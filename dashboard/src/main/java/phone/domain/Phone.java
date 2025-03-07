@@ -23,4 +23,5 @@ public class Phone {
     private String imeiLockStatus;
     private String lockStatus;
     private String phoneChangeStatus;
+    private Long lostPhoneId;
 }

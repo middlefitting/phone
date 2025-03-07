@@ -27,6 +27,9 @@
             <div>
                 <String label="PhoneChangeStatus" v-model="item.phoneChangeStatus" :editMode="editMode" @change="change" />
             </div>
+            <div>
+                <Number label="LostPhoneId" v-model="item.lostPhoneId" :editMode="editMode" @change="change" />
+            </div>
         </v-card-text>
     </v-card>
 

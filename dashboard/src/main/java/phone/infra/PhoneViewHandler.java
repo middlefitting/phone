@@ -55,6 +55,53 @@ public class PhoneViewHandler {
     }
 
     @StreamListener(KafkaProcessor.INPUT)
+    public void whenLostReportRequested_then_UPDATE_1(
+        @Payload LostReportRequested lostReportRequested
+    ) {
+        try {
+            if (!lostReportRequested.validate()) return;
+            // view 객체 조회
+            Optional<Phone> phoneOptional = phoneRepository.findById(
+                lostReportRequested.getPhoneId()
+            );
+
+            if (phoneOptional.isPresent()) {
+                Phone phone = phoneOptional.get();
+                // view 객체에 이벤트의 eventDirectValue 를 set 함
+                phone.setLostStatus(lostReportRequested.getLostStatus());
+                phone.setImeiLockStatus(lostReportRequested.getImeiStatus());
+                phone.setLockStatus(lostReportRequested.getLockStatus());
+                // view 레파지 토리에 save
+                phoneRepository.save(phone);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @StreamListener(KafkaProcessor.INPUT)
+    public void whenPhoneChangeRequested_then_UPDATE_2(
+        @Payload PhoneChangeRequested phoneChangeRequested
+    ) {
+        try {
+            if (!phoneChangeRequested.validate()) return;
+            // view 객체 조회
+            Optional<Phone> phoneOptional = phoneRepository.findById(
+                phoneChangeRequested.getLostPhoneId()
+            );
+
+            if (phoneOptional.isPresent()) {
+                Phone phone = phoneOptional.get();
+                // view 객체에 이벤트의 eventDirectValue 를 set 함
+                // view 레파지 토리에 save
+                phoneRepository.save(phone);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @StreamListener(KafkaProcessor.INPUT)
     public void whenPhoneDeleted_then_DELETE_1(
         @Payload PhoneDeleted phoneDeleted
     ) {
