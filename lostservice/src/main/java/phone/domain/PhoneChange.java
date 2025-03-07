@@ -38,8 +38,8 @@ public class PhoneChange {
     public void phoneChangeAccess() {
         //implement business logic here:
 
-        PhoneChangeAccess phoneChangeAccess = new PhoneChangeAccess(this);
-        phoneChangeAccess.publishAfterCommit();
+        PhoneChangeAccessed phoneChangeAccessed = new PhoneChangeAccessed(this);
+        phoneChangeAccessed.publishAfterCommit();
     }
 
     //>>> Clean Arch / Port Method

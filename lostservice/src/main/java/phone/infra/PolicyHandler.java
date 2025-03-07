@@ -18,9 +18,6 @@ import phone.domain.*;
 public class PolicyHandler {
 
     @Autowired
-    InsuranceRepository insuranceRepository;
-
-    @Autowired
     PhoneChangeRepository phoneChangeRepository;
 
     @StreamListener(KafkaProcessor.INPUT)
@@ -39,41 +36,7 @@ public class PolicyHandler {
         );
 
         // Sample Logic //
-        Insurance.reportCancel(event);
-    }
-
-    @StreamListener(
-        value = KafkaProcessor.INPUT,
-        condition = "headers['type']=='LostCancelRequested'"
-    )
-    public void wheneverLostCancelRequested_ReportCancel(
-        @Payload LostCancelRequested lostCancelRequested
-    ) {
-        LostCancelRequested event = lostCancelRequested;
-        System.out.println(
-            "\n\n##### listener ReportCancel : " + lostCancelRequested + "\n\n"
-        );
-
-        // Sample Logic //
         PhoneChange.reportCancel(event);
-    }
-
-    @StreamListener(
-        value = KafkaProcessor.INPUT,
-        condition = "headers['type']=='LostReportRequested'"
-    )
-    public void wheneverLostReportRequested_InsuranceRequest(
-        @Payload LostReportRequested lostReportRequested
-    ) {
-        LostReportRequested event = lostReportRequested;
-        System.out.println(
-            "\n\n##### listener InsuranceRequest : " +
-            lostReportRequested +
-            "\n\n"
-        );
-
-        // Sample Logic //
-        Insurance.insuranceRequest(event);
     }
 
     @StreamListener(

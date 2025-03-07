@@ -8,7 +8,8 @@ import java.util.Map;
 import javax.persistence.*;
 import lombok.Data;
 import phone.PhoneApplication;
-import phone.domain.PhoneStatusUpdated;
+import phone.domain.PhoneCreated;
+import phone.domain.PhoneDeleted;
 
 @Entity
 @Table(name = "Phone_table")
@@ -20,11 +21,18 @@ public class Phone {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String imei;
+
     private Long userId;
 
-    private String status;
+    @PostPersist
+    public void onPostPersist() {
+        PhoneCreated phoneCreated = new PhoneCreated(this);
+        phoneCreated.publishAfterCommit();
 
-    private String imei;
+        PhoneDeleted phoneDeleted = new PhoneDeleted(this);
+        phoneDeleted.publishAfterCommit();
+    }
 
     public static PhoneRepository repository() {
         PhoneRepository phoneRepository = PhoneApplication.applicationContext.getBean(
@@ -34,85 +42,27 @@ public class Phone {
     }
 
     //<<< Clean Arch / Port Method
-    public static void statusUpdate(ImeiLocked imeiLocked) {
+    public static void phoneChange(PhoneChangeAccessed phoneChangeAccessed) {
         //implement business logic here:
 
         /** Example 1:  new item 
         Phone phone = new Phone();
         repository().save(phone);
 
-        PhoneStatusUpdated phoneStatusUpdated = new PhoneStatusUpdated(phone);
-        phoneStatusUpdated.publishAfterCommit();
+        PhoneDeleted phoneDeleted = new PhoneDeleted(phone);
+        phoneDeleted.publishAfterCommit();
         */
 
         /** Example 2:  finding and process
         
 
-        repository().findById(imeiLocked.get???()).ifPresent(phone->{
+        repository().findById(phoneChangeAccessed.get???()).ifPresent(phone->{
             
             phone // do something
             repository().save(phone);
 
-            PhoneStatusUpdated phoneStatusUpdated = new PhoneStatusUpdated(phone);
-            phoneStatusUpdated.publishAfterCommit();
-
-         });
-        */
-
-    }
-
-    //>>> Clean Arch / Port Method
-    //<<< Clean Arch / Port Method
-    public static void statusUpdate(Locked locked) {
-        //implement business logic here:
-
-        /** Example 1:  new item 
-        Phone phone = new Phone();
-        repository().save(phone);
-
-        PhoneStatusUpdated phoneStatusUpdated = new PhoneStatusUpdated(phone);
-        phoneStatusUpdated.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-
-        repository().findById(locked.get???()).ifPresent(phone->{
-            
-            phone // do something
-            repository().save(phone);
-
-            PhoneStatusUpdated phoneStatusUpdated = new PhoneStatusUpdated(phone);
-            phoneStatusUpdated.publishAfterCommit();
-
-         });
-        */
-
-    }
-
-    //>>> Clean Arch / Port Method
-    //<<< Clean Arch / Port Method
-    public static void statusUpdate(LostCancelRequested lostCancelRequested) {
-        //implement business logic here:
-
-        /** Example 1:  new item 
-        Phone phone = new Phone();
-        repository().save(phone);
-
-        PhoneStatusUpdated phoneStatusUpdated = new PhoneStatusUpdated(phone);
-        phoneStatusUpdated.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-
-        repository().findById(lostCancelRequested.get???()).ifPresent(phone->{
-            
-            phone // do something
-            repository().save(phone);
-
-            PhoneStatusUpdated phoneStatusUpdated = new PhoneStatusUpdated(phone);
-            phoneStatusUpdated.publishAfterCommit();
+            PhoneDeleted phoneDeleted = new PhoneDeleted(phone);
+            phoneDeleted.publishAfterCommit();
 
          });
         */

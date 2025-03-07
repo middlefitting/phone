@@ -13,4 +13,7 @@ public class LostCancelRequested extends AbstractEvent {
     private Long userId;
     private Long phoneId;
     private String lostStatus;
+    private String imei;
+    private String imeiStatus;
+    private String lockStatus;
 }

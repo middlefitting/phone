@@ -61,9 +61,8 @@
             headers: 
                 [
                     { text: "id", value: "id" },
-                    { text: "userId", value: "userId" },
-                    { text: "status", value: "status" },
                     { text: "imei", value: "imei" },
+                    { text: "userId", value: "userId" },
                 ],
             phone : [],
             newValue: {},
@@ -81,9 +80,8 @@
             this.values = temp.data._embedded.phones;
 
             this.newValue = {
-                'userId': 0,
-                'status': '',
                 'imei': '',
+                'userId': 0,
             }
         },
         methods: {

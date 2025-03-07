@@ -9,18 +9,17 @@ import phone.infra.AbstractEvent;
 //<<< DDD / Domain Event
 @Data
 @ToString
-public class InsuranceAccessed extends AbstractEvent {
+public class PhoneCreated extends AbstractEvent {
 
     private Long id;
+    private String imei;
     private Long userId;
-    private Long lostPhoneId;
-    private String status;
 
-    public InsuranceAccessed(Insurance aggregate) {
+    public PhoneCreated(Phone aggregate) {
         super(aggregate);
     }
 
-    public InsuranceAccessed() {
+    public PhoneCreated() {
         super();
     }
 }

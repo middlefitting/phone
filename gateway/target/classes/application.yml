@@ -9,18 +9,22 @@ spring:
     gateway:
 #<<< API Gateway / Routes
       routes:
-        - id: lost
+        - id: phone
           uri: http://localhost:8082
           predicates:
-            - Path=/lostPhones/**, 
+            - Path=/lostPhones/**, /phones/**, 
         - id: lostservice
           uri: http://localhost:8083
           predicates:
-            - Path=/insurances/**, /phoneChanges/**, 
-        - id: phone
+            - Path=/phoneChanges/**, 
+        - id: gps
           uri: http://localhost:8084
           predicates:
-            - Path=/destinations/**, /phones/**, /gpsInfoLists/**, /phoneInfoLists/**
+            - Path=/destinations/**, 
+        - id: dashboard
+          uri: http://localhost:8085
+          predicates:
+            - Path=, /gpsInfos/**, /phones/**
         - id: frontend
           uri: http://localhost:8080
           predicates:
@@ -45,18 +49,22 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: lost
-          uri: http://lost:8080
-          predicates:
-            - Path=/lostPhones/**, 
-        - id: lostservice
-          uri: http://lostservice:8080
-          predicates:
-            - Path=/insurances/**, /phoneChanges/**, 
         - id: phone
           uri: http://phone:8080
           predicates:
-            - Path=/destinations/**, /phones/**, 
+            - Path=/lostPhones/**, /phones/**, 
+        - id: lostservice
+          uri: http://lostservice:8080
+          predicates:
+            - Path=/phoneChanges/**, 
+        - id: gps
+          uri: http://gps:8080
+          predicates:
+            - Path=/destinations/**, 
+        - id: dashboard
+          uri: http://dashboard:8080
+          predicates:
+            - Path=, 
         - id: frontend
           uri: http://frontend:8080
           predicates:

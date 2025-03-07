@@ -12,15 +12,6 @@ public class InsuranceHateoasProcessor
 
     @Override
     public EntityModel<Insurance> process(EntityModel<Insurance> model) {
-        model.add(
-            Link
-                .of(
-                    model.getRequiredLink("self").getHref() +
-                    "/insuranceaccessrequest"
-                )
-                .withRel("insuranceaccessrequest")
-        );
-
         return model;
     }
 }

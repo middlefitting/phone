@@ -35,7 +35,7 @@
                     <v-list-item
                         class="px-2"
                         key="lostPhones"
-                        to="/losts/lostPhones"
+                        to="/phones/lostPhones"
                         @click="changeUrl()"
                         color="primary"
                         style="font-weight:700;"
@@ -44,13 +44,13 @@
                     </v-list-item>
                     <v-list-item
                         class="px-2"
-                        key="insurances"
-                        to="/lostservices/insurances"
+                        key="phones"
+                        to="/phones/phones"
                         @click="changeUrl()"
                         color="primary"
                         style="font-weight:700;"
                     >
-                        Insurance
+                        Phone
                     </v-list-item>
                     <v-list-item
                         class="px-2"
@@ -65,7 +65,7 @@
                     <v-list-item
                         class="px-2"
                         key="destinations"
-                        to="/phones/destinations"
+                        to="/gps/destinations"
                         @click="changeUrl()"
                         color="primary"
                         style="font-weight:700;"
@@ -74,23 +74,23 @@
                     </v-list-item>
                     <v-list-item
                         class="px-2"
+                        key="gpsInfos"
+                        to="/dashboards/gpsInfos"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        GpsInfo
+                    </v-list-item>
+                    <v-list-item
+                        class="px-2"
                         key="phones"
-                        to="/phones/phones"
+                        to="/dashboards/phones"
                         @click="changeUrl()"
                         color="primary"
                         style="font-weight:700;"
                     >
                         Phone
-                    </v-list-item>
-                    <v-list-item
-                        class="px-2"
-                        key="gpsInfoLists"
-                        to="/phones/gpsInfoLists"
-                        @click="changeUrl()"
-                        color="primary"
-                        style="font-weight:700;"
-                    >
-                        GpsInfoList
                     </v-list-item>
                 </v-list>
             </v-navigation-drawer>
@@ -151,14 +151,14 @@ export default {
                 title: 'LostPhone', 
                 description: 'LostPhone을 관리하는 화면입니다.', 
                 key: 'lostPhones', 
-                route: '/losts/lostPhones',
+                route: '/phones/lostPhones',
                 ImageUrl: '',
             },
             { 
-                title: 'Insurance', 
-                description: 'Insurance을 관리하는 화면입니다.', 
-                key: 'insurances', 
-                route: '/lostservices/insurances',
+                title: 'Phone', 
+                description: 'Phone을 관리하는 화면입니다.', 
+                key: 'phones', 
+                route: '/phones/phones',
                 ImageUrl: '',
             },
             { 
@@ -172,21 +172,21 @@ export default {
                 title: 'Destination', 
                 description: 'Destination을 관리하는 화면입니다.', 
                 key: 'destinations', 
-                route: '/phones/destinations',
+                route: '/gps/destinations',
+                ImageUrl: '',
+            },
+            { 
+                title: 'GpsInfo', 
+                description: 'GPSInfo을 관리하는 화면입니다.', 
+                key: 'gpsInfos', 
+                route: '/dashboards/gpsInfos',
                 ImageUrl: '',
             },
             { 
                 title: 'Phone', 
-                description: 'phone을 관리하는 화면입니다.', 
+                description: 'Phone을 관리하는 화면입니다.', 
                 key: 'phones', 
-                route: '/phones/phones',
-                ImageUrl: '',
-            },
-            { 
-                title: 'GpsInfoList', 
-                description: 'GPSInfoList을 관리하는 화면입니다.', 
-                key: 'gpsInfoLists', 
-                route: '/phones/gpsInfoLists',
+                route: '/dashboards/phones',
                 ImageUrl: '',
             },
             

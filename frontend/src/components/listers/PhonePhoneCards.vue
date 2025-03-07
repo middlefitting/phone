@@ -101,9 +101,8 @@
             me.values = temp.data._embedded.phones;
             
             me.newValue = {
-                'userId': 0,
-                'status': '',
                 'imei': '',
+                'userId': 0,
             }
         },
         methods:{

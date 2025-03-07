@@ -3,22 +3,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lost
+  name: phone
   labels:
-    app: lost
+    app: phone
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: lost
+      app: phone
   template:
     metadata:
       labels:
-        app: lost
+        app: phone
     spec:
       containers:
-        - name: lost
-          image: username/lost:latest
+        - name: phone
+          image: username/phone:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -83,22 +83,62 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: phone
+  name: gps
   labels:
-    app: phone
+    app: gps
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: phone
+      app: gps
   template:
     metadata:
       labels:
-        app: phone
+        app: gps
     spec:
       containers:
-        - name: phone
-          image: username/phone:latest
+        - name: gps
+          image: username/gps:latest
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 10
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 10
+          livenessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 120
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 5
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dashboard
+  labels:
+    app: dashboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dashboard
+  template:
+    metadata:
+      labels:
+        app: dashboard
+    spec:
+      containers:
+        - name: dashboard
+          image: username/dashboard:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -125,15 +165,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: lost
+  name: phone
   labels:
-    app: lost
+    app: phone
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: lost
+    app: phone
 
 
 ---
@@ -159,13 +199,30 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: phone
+  name: gps
   labels:
-    app: phone
+    app: gps
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: phone
+    app: gps
+
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: dashboard
+  labels:
+    app: dashboard
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: dashboard
 

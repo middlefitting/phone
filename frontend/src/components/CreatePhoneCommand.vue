@@ -1,7 +1,7 @@
 <template>
     <v-card outlined>
         <v-card-title>
-            InsuranceAccessRequest
+            CreatePhone
         </v-card-title>
 
         <v-card-text>
@@ -12,9 +12,9 @@
             <v-btn
                     color="primary"
                     text
-                    @click="insuranceAccessRequest"
+                    @click="createPhone"
             >
-                InsuranceAccessRequest
+                CreatePhone
             </v-btn>
             
             <v-btn
@@ -32,7 +32,7 @@
 <script>
    
     export default {
-        name: 'InsuranceAccessRequestCommand',
+        name: 'CreatePhoneCommand',
         components:{},
         props: {},
         data: () => ({
@@ -44,8 +44,8 @@
         watch: {
         },
         methods: {
-            insuranceAccessRequest() {
-                this.$emit('insuranceAccessRequest', this.value);
+            createPhone() {
+                this.$emit('createPhone', this.value);
             },
             close() {
                 this.$emit('closeDialog');

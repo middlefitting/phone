@@ -5,69 +5,36 @@ import Router from 'vue-router'
 Vue.use(Router);
 
 
-import LostLostPhoneManager from "./components/listers/LostLostPhoneCards"
-import LostLostPhoneDetail from "./components/listers/LostLostPhoneDetail"
-
-import LostserviceInsuranceManager from "./components/listers/LostserviceInsuranceCards"
-import LostserviceInsuranceDetail from "./components/listers/LostserviceInsuranceDetail"
-import LostservicePhoneChangeManager from "./components/listers/LostservicePhoneChangeCards"
-import LostservicePhoneChangeDetail from "./components/listers/LostservicePhoneChangeDetail"
-
-import PhoneDestinationManager from "./components/listers/PhoneDestinationCards"
-import PhoneDestinationDetail from "./components/listers/PhoneDestinationDetail"
+import PhoneLostPhoneManager from "./components/listers/PhoneLostPhoneCards"
+import PhoneLostPhoneDetail from "./components/listers/PhoneLostPhoneDetail"
 import PhonePhoneManager from "./components/listers/PhonePhoneCards"
 import PhonePhoneDetail from "./components/listers/PhonePhoneDetail"
 
-import GpsInfoListView from "./components/GpsInfoListView"
-import GpsInfoListViewDetail from "./components/GpsInfoListViewDetail"
-import PhoneInfoListView from "./components/PhoneInfoListView"
-import PhoneInfoListViewDetail from "./components/PhoneInfoListViewDetail"
+import LostservicePhoneChangeManager from "./components/listers/LostservicePhoneChangeCards"
+import LostservicePhoneChangeDetail from "./components/listers/LostservicePhoneChangeDetail"
+
+import GpsDestinationManager from "./components/listers/GpsDestinationCards"
+import GpsDestinationDetail from "./components/listers/GpsDestinationDetail"
+
+
+import GpsInfoView from "./components/GpsInfoView"
+import GpsInfoViewDetail from "./components/GpsInfoViewDetail"
+import PhoneView from "./components/PhoneView"
+import PhoneViewDetail from "./components/PhoneViewDetail"
 
 export default new Router({
     // mode: 'history',
     base: process.env.BASE_URL,
     routes: [
             {
-                path: '/losts/lostPhones',
-                name: 'LostLostPhoneManager',
-                component: LostLostPhoneManager
+                path: '/phones/lostPhones',
+                name: 'PhoneLostPhoneManager',
+                component: PhoneLostPhoneManager
             },
             {
-                path: '/losts/lostPhones/:id',
-                name: 'LostLostPhoneDetail',
-                component: LostLostPhoneDetail
-            },
-
-            {
-                path: '/lostservices/insurances',
-                name: 'LostserviceInsuranceManager',
-                component: LostserviceInsuranceManager
-            },
-            {
-                path: '/lostservices/insurances/:id',
-                name: 'LostserviceInsuranceDetail',
-                component: LostserviceInsuranceDetail
-            },
-            {
-                path: '/lostservices/phoneChanges',
-                name: 'LostservicePhoneChangeManager',
-                component: LostservicePhoneChangeManager
-            },
-            {
-                path: '/lostservices/phoneChanges/:id',
-                name: 'LostservicePhoneChangeDetail',
-                component: LostservicePhoneChangeDetail
-            },
-
-            {
-                path: '/phones/destinations',
-                name: 'PhoneDestinationManager',
-                component: PhoneDestinationManager
-            },
-            {
-                path: '/phones/destinations/:id',
-                name: 'PhoneDestinationDetail',
-                component: PhoneDestinationDetail
+                path: '/phones/lostPhones/:id',
+                name: 'PhoneLostPhoneDetail',
+                component: PhoneLostPhoneDetail
             },
             {
                 path: '/phones/phones',
@@ -81,24 +48,47 @@ export default new Router({
             },
 
             {
-                path: '/phones/gpsInfoLists',
-                name: 'GpsInfoListView',
-                component: GpsInfoListView
+                path: '/lostservices/phoneChanges',
+                name: 'LostservicePhoneChangeManager',
+                component: LostservicePhoneChangeManager
             },
             {
-                path: '/phones/gpsInfoLists/:id',
-                name: 'GpsInfoListViewDetail',
-                component: GpsInfoListViewDetail
+                path: '/lostservices/phoneChanges/:id',
+                name: 'LostservicePhoneChangeDetail',
+                component: LostservicePhoneChangeDetail
+            },
+
+            {
+                path: '/gps/destinations',
+                name: 'GpsDestinationManager',
+                component: GpsDestinationManager
             },
             {
-                path: '/phones/phoneInfoLists',
-                name: 'PhoneInfoListView',
-                component: PhoneInfoListView
+                path: '/gps/destinations/:id',
+                name: 'GpsDestinationDetail',
+                component: GpsDestinationDetail
+            },
+
+
+            {
+                path: '/dashboards/gpsInfos',
+                name: 'GpsInfoView',
+                component: GpsInfoView
             },
             {
-                path: '/phones/phoneInfoLists/:id',
-                name: 'PhoneInfoListViewDetail',
-                component: PhoneInfoListViewDetail
+                path: '/dashboards/gpsInfos/:id',
+                name: 'GpsInfoViewDetail',
+                component: GpsInfoViewDetail
+            },
+            {
+                path: '/dashboards/phones',
+                name: 'PhoneView',
+                component: PhoneView
+            },
+            {
+                path: '/dashboards/phones/:id',
+                name: 'PhoneViewDetail',
+                component: PhoneViewDetail
             },
 
 

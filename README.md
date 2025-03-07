@@ -20,9 +20,10 @@ cd /bin
 ## Run the backend micro-services
 See the README.md files inside the each microservices directory:
 
-- lost
-- lostservice
 - phone
+- lostservice
+- gps
+- dashboard
 
 
 ## Run API Gateway (Spring Gateway)
@@ -32,19 +33,21 @@ mvn spring-boot:run
 ```
 
 ## Test by API
-- lost
+- phone
 ```
  http :8088/lostPhones id="id"userId="userId"imei="IMEI"lostStatus="lostStatus"imeiStatus="IMEIStatus"lockStatus="lockStatus"phoneId="phoneId"
+ http :8088/phones id="id"imei="IMEI"userId="userId"
 ```
 - lostservice
 ```
- http :8088/insurances id="id"userId="userId"lostPhoneId="lostPhoneId"status="status"
  http :8088/phoneChanges id="id"userId="userId"lostPhoneId="lostPhoneId"status="status"
 ```
-- phone
+- gps
 ```
  http :8088/destinations id="id"time="time"x="x"y="y"phoneId="phoneId"
- http :8088/phones id="id"userId="userId"status="status"imei="IMEI"
+```
+- dashboard
+```
 ```
 
 

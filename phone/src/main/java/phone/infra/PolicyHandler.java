@@ -18,7 +18,7 @@ import phone.domain.*;
 public class PolicyHandler {
 
     @Autowired
-    DestinationRepository destinationRepository;
+    LostPhoneRepository lostPhoneRepository;
 
     @Autowired
     PhoneRepository phoneRepository;
@@ -28,48 +28,34 @@ public class PolicyHandler {
 
     @StreamListener(
         value = KafkaProcessor.INPUT,
-        condition = "headers['type']=='ImeiLocked'"
+        condition = "headers['type']=='PhoneChangeAccessed'"
     )
-    public void wheneverImeiLocked_StatusUpdate(
-        @Payload ImeiLocked imeiLocked
+    public void wheneverPhoneChangeAccessed_PhoneChange(
+        @Payload PhoneChangeAccessed phoneChangeAccessed
     ) {
-        ImeiLocked event = imeiLocked;
+        PhoneChangeAccessed event = phoneChangeAccessed;
         System.out.println(
-            "\n\n##### listener StatusUpdate : " + imeiLocked + "\n\n"
+            "\n\n##### listener PhoneChange : " + phoneChangeAccessed + "\n\n"
         );
 
         // Sample Logic //
-        Phone.statusUpdate(event);
+        Phone.phoneChange(event);
     }
 
     @StreamListener(
         value = KafkaProcessor.INPUT,
-        condition = "headers['type']=='Locked'"
+        condition = "headers['type']=='PhoneDeleted'"
     )
-    public void wheneverLocked_StatusUpdate(@Payload Locked locked) {
-        Locked event = locked;
-        System.out.println(
-            "\n\n##### listener StatusUpdate : " + locked + "\n\n"
-        );
-
-        // Sample Logic //
-        Phone.statusUpdate(event);
-    }
-
-    @StreamListener(
-        value = KafkaProcessor.INPUT,
-        condition = "headers['type']=='LostCancelRequested'"
-    )
-    public void wheneverLostCancelRequested_StatusUpdate(
-        @Payload LostCancelRequested lostCancelRequested
+    public void wheneverPhoneDeleted_PhoneChange(
+        @Payload PhoneDeleted phoneDeleted
     ) {
-        LostCancelRequested event = lostCancelRequested;
+        PhoneDeleted event = phoneDeleted;
         System.out.println(
-            "\n\n##### listener StatusUpdate : " + lostCancelRequested + "\n\n"
+            "\n\n##### listener PhoneChange : " + phoneDeleted + "\n\n"
         );
 
         // Sample Logic //
-        Phone.statusUpdate(event);
+        LostPhone.phoneChange(event);
     }
 }
 //>>> Clean Arch / Inbound Adaptor

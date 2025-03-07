@@ -19,30 +19,5 @@ public class InsuranceController {
 
     @Autowired
     InsuranceRepository insuranceRepository;
-
-    @RequestMapping(
-        value = "/insurances/{id}/insuranceaccessrequest",
-        method = RequestMethod.PUT,
-        produces = "application/json;charset=UTF-8"
-    )
-    public Insurance insuranceAccessRequest(
-        @PathVariable(value = "id") Long id,
-        HttpServletRequest request,
-        HttpServletResponse response
-    ) throws Exception {
-        System.out.println(
-            "##### /insurance/insuranceAccessRequest  called #####"
-        );
-        Optional<Insurance> optionalInsurance = insuranceRepository.findById(
-            id
-        );
-
-        optionalInsurance.orElseThrow(() -> new Exception("No Entity Found"));
-        Insurance insurance = optionalInsurance.get();
-        insurance.insuranceAccessRequest();
-
-        insuranceRepository.save(insurance);
-        return insurance;
-    }
 }
 //>>> Clean Arch / Inbound Adaptor

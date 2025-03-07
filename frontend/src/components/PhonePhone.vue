@@ -16,9 +16,8 @@
         </v-card-title >        
 
         <v-card-text style="background-color: white;">
-            <Number label="UserId" v-model="value.userId" :editMode="editMode" :inputUI="''"/>
-            <String label="Status" v-model="value.status" :editMode="editMode" :inputUI="''"/>
             <String label="Imei" v-model="value.imei" :editMode="editMode" :inputUI="''"/>
+            <Number label="UserId" v-model="value.userId" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 
         <v-card-actions style="background-color: white;">
@@ -45,7 +44,7 @@
                     text
                     @click="save"
                 >
-                저장
+                    CreatePhone
                 </v-btn>
                 <v-btn
                     color="primary"
