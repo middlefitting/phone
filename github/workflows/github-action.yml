@@ -30,7 +30,6 @@ jobs:
       - name: Build Maven Projects
         run: |
           mvn clean package -f ./lost/pom.xml
-          mvn clean package -f ./destination/pom.xml
           mvn clean package -f ./lostservice/pom.xml
           mvn clean package -f ./phone/pom.xml
 
@@ -43,16 +42,6 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository }}/lost:latest
             ghcr.io/${{ github.repository }}/lost:${{ github.ref_name }}
-            
-      - name: Docker Build and push for Destination
-        uses: docker/build-push-action@v4
-        with:
-          context: ./destination
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: |
-            ghcr.io/${{ github.repository }}/destination:latest
-            ghcr.io/${{ github.repository }}/destination:${{ github.ref_name }}
             
       - name: Docker Build and push for Lostservice
         uses: docker/build-push-action@v4

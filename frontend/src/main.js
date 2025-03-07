@@ -47,12 +47,10 @@ const pluralCaseList = []
 
 pluralCaseList.push( {plural: "losts/lostPhones", pascal: "LostLostPhone"} )
 
-pluralCaseList.push( {plural: "destinations/stations", pascal: "DestinationStation"} )
-pluralCaseList.push( {plural: "destinations/destinations", pascal: "DestinationDestination"} )
-
 pluralCaseList.push( {plural: "lostservices/insurances", pascal: "LostserviceInsurance"} )
 pluralCaseList.push( {plural: "lostservices/phoneChanges", pascal: "LostservicePhoneChange"} )
 
+pluralCaseList.push( {plural: "phones/destinations", pascal: "PhoneDestination"} )
 pluralCaseList.push( {plural: "phones/phones", pascal: "PhonePhone"} )
 
 

@@ -44,26 +44,6 @@
                     </v-list-item>
                     <v-list-item
                         class="px-2"
-                        key="stations"
-                        to="/destinations/stations"
-                        @click="changeUrl()"
-                        color="primary"
-                        style="font-weight:700;"
-                    >
-                        Station
-                    </v-list-item>
-                    <v-list-item
-                        class="px-2"
-                        key="destinations"
-                        to="/destinations/destinations"
-                        @click="changeUrl()"
-                        color="primary"
-                        style="font-weight:700;"
-                    >
-                        Destination
-                    </v-list-item>
-                    <v-list-item
-                        class="px-2"
                         key="insurances"
                         to="/lostservices/insurances"
                         @click="changeUrl()"
@@ -81,6 +61,16 @@
                         style="font-weight:700;"
                     >
                         PhoneChange
+                    </v-list-item>
+                    <v-list-item
+                        class="px-2"
+                        key="destinations"
+                        to="/phones/destinations"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        Destination
                     </v-list-item>
                     <v-list-item
                         class="px-2"
@@ -155,20 +145,6 @@ export default {
                 ImageUrl: '',
             },
             { 
-                title: 'Station', 
-                description: 'Station을 관리하는 화면입니다.', 
-                key: 'stations', 
-                route: '/destinations/stations',
-                ImageUrl: '',
-            },
-            { 
-                title: 'Destination', 
-                description: 'Destination을 관리하는 화면입니다.', 
-                key: 'destinations', 
-                route: '/destinations/destinations',
-                ImageUrl: '',
-            },
-            { 
                 title: 'Insurance', 
                 description: 'Insurance을 관리하는 화면입니다.', 
                 key: 'insurances', 
@@ -180,6 +156,13 @@ export default {
                 description: 'PhoneChange을 관리하는 화면입니다.', 
                 key: 'phoneChanges', 
                 route: '/lostservices/phoneChanges',
+                ImageUrl: '',
+            },
+            { 
+                title: 'Destination', 
+                description: 'Destination을 관리하는 화면입니다.', 
+                key: 'destinations', 
+                route: '/phones/destinations',
                 ImageUrl: '',
             },
             { 

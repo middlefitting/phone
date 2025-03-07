@@ -23,6 +23,9 @@
                             <v-list-item-subtitle>
                                 Y :  {{item.y }}
                             </v-list-item-subtitle>
+                            <v-list-item-subtitle>
+                                PhoneId :  {{item.phoneId }}
+                            </v-list-item-subtitle>
                         </v-list-item-content>
 
                         <v-list-item-action>
@@ -40,7 +43,7 @@
     const axios = require('axios').default;
 
     export default {
-        name: 'DestinationDestinationPicker',
+        name: 'PhoneDestinationPicker',
         props: {
             value: [String, Object, Array, Number, Boolean],
         },
@@ -74,6 +77,8 @@
                 if(val != undefined) {
                     var arr = this.list[val]._links.self.href.split('/');
                     obj['id'] = arr[4]; 
+                    
+                    
                     
                     
                     

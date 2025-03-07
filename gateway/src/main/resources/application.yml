@@ -13,18 +13,14 @@ spring:
           uri: http://localhost:8082
           predicates:
             - Path=/lostPhones/**, 
-        - id: destination
-          uri: http://localhost:8083
-          predicates:
-            - Path=/stations/**, /destinations/**, /stationInfoLists/**, /gpsInfoLists/**
         - id: lostservice
-          uri: http://localhost:8084
+          uri: http://localhost:8083
           predicates:
             - Path=/insurances/**, /phoneChanges/**, 
         - id: phone
-          uri: http://localhost:8085
+          uri: http://localhost:8084
           predicates:
-            - Path=/phones/**, /phoneInfoLists/**
+            - Path=/destinations/**, /phones/**, /gpsInfoLists/**, /phoneInfoLists/**
         - id: frontend
           uri: http://localhost:8080
           predicates:
@@ -53,10 +49,6 @@ spring:
           uri: http://lost:8080
           predicates:
             - Path=/lostPhones/**, 
-        - id: destination
-          uri: http://destination:8080
-          predicates:
-            - Path=/stations/**, /destinations/**, 
         - id: lostservice
           uri: http://lostservice:8080
           predicates:
@@ -64,7 +56,7 @@ spring:
         - id: phone
           uri: http://phone:8080
           predicates:
-            - Path=/phones/**, 
+            - Path=/destinations/**, /phones/**, 
         - id: frontend
           uri: http://frontend:8080
           predicates:

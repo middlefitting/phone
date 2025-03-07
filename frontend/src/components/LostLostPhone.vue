@@ -55,28 +55,7 @@
                     text
                     @click="save"
                 >
-                    LostAccess
-                </v-btn>
-                <v-btn
-                    color="primary"
-                    text
-                    @click="save"
-                >
                     ReportCancelRequest
-                </v-btn>
-                <v-btn
-                    color="primary"
-                    text
-                    @click="save"
-                >
-                    LostCancelAccess
-                </v-btn>
-                <v-btn
-                    color="primary"
-                    text
-                    @click="save"
-                >
-                    Lock
                 </v-btn>
                 <v-btn
                     color="primary"
@@ -90,6 +69,14 @@
         </v-card-actions>
         <v-card-actions>
             <v-spacer></v-spacer>
+            <v-btn
+                v-if="!editMode"
+                color="primary"
+                text
+                @click="lock"
+            >
+                Lock
+            </v-btn>
         </v-card-actions>
 
         <v-snackbar
@@ -223,6 +210,25 @@
             },
             change(){
                 this.$emit('input', this.value);
+            },
+            async lock() {
+                try {
+                    if(!this.offline) {
+                        var temp = await axios.put(axios.fixUrl(this.value._links['lock'].href))
+                        for(var k in temp.data) {
+                            this.value[k]=temp.data[k];
+                        }
+                    }
+
+                    this.editMode = false;
+                } catch(e) {
+                    this.snackbar.status = true
+                    if(e.response && e.response.data.message) {
+                        this.snackbar.text = e.response.data.message
+                    } else {
+                        this.snackbar.text = e
+                    }
+                }
             },
         },
     }

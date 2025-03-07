@@ -45,7 +45,7 @@
                     text
                     @click="save"
                 >
-                    LogTransfer
+                저장
                 </v-btn>
                 <v-btn
                     color="primary"

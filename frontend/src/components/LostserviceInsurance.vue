@@ -50,13 +50,6 @@
                 <v-btn
                     color="primary"
                     text
-                    @click="save"
-                >
-                    InsuranceAccess
-                </v-btn>
-                <v-btn
-                    color="primary"
-                    text
                     @click="editMode = false"
                     v-if="editMode && !isNew"
                 >

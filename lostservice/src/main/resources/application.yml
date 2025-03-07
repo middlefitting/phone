@@ -31,12 +31,12 @@ spring:
         event-in:
           group: lostservice
 #<<< EDA / Topic Name
-          destination: untitled
+          destination: phone
 #>>> EDA / Topic Name
           contentType: application/json
         event-out:
 #<<< EDA / Topic Name
-          destination: untitled
+          destination: phone
 #>>> EDA / Topic Name
           contentType: application/json
 
@@ -47,7 +47,7 @@ logging:
 
 
 server:
-  port: 8084
+  port: 8083
 
 ---
 
@@ -75,10 +75,10 @@ spring:
       bindings:
         event-in:
           group: lostservice
-          destination: untitled
+          destination: phone
           contentType: application/json
         event-out:
-          destination: untitled
+          destination: phone
           contentType: application/json
 
 

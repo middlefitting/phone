@@ -21,7 +21,6 @@ cd /bin
 See the README.md files inside the each microservices directory:
 
 - lost
-- destination
 - lostservice
 - phone
 
@@ -37,11 +36,6 @@ mvn spring-boot:run
 ```
  http :8088/lostPhones id="id"userId="userId"imei="IMEI"lostStatus="lostStatus"imeiStatus="IMEIStatus"lockStatus="lockStatus"phoneId="phoneId"
 ```
-- destination
-```
- http :8088/stations id="id"name="name"date="date"x="x"y="y"
- http :8088/destinations id="id"time="time"x="x"y="y"
-```
 - lostservice
 ```
  http :8088/insurances id="id"userId="userId"lostPhoneId="lostPhoneId"status="status"
@@ -49,6 +43,7 @@ mvn spring-boot:run
 ```
 - phone
 ```
+ http :8088/destinations id="id"time="time"x="x"y="y"phoneId="phoneId"
  http :8088/phones id="id"userId="userId"status="status"imei="IMEI"
 ```
 

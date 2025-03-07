@@ -31,12 +31,12 @@ spring:
         event-in:
           group: phone
 #<<< EDA / Topic Name
-          destination: untitled
+          destination: phone
 #>>> EDA / Topic Name
           contentType: application/json
         event-out:
 #<<< EDA / Topic Name
-          destination: untitled
+          destination: phone
 #>>> EDA / Topic Name
           contentType: application/json
 
@@ -45,9 +45,13 @@ logging:
     org.hibernate.type: trace
     org.springframework.cloud: debug
 
+api:
+  url: 
+    phone: localhost:8084 
+    
 
 server:
-  port: 8085
+  port: 8084
 
 ---
 
@@ -75,10 +79,14 @@ spring:
       bindings:
         event-in:
           group: phone
-          destination: untitled
+          destination: phone
           contentType: application/json
         event-out:
-          destination: untitled
+          destination: phone
           contentType: application/json
 
+api:
+  url: 
+    phone: phone:8080 
+    
 

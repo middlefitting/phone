@@ -8,23 +8,18 @@ Vue.use(Router);
 import LostLostPhoneManager from "./components/listers/LostLostPhoneCards"
 import LostLostPhoneDetail from "./components/listers/LostLostPhoneDetail"
 
-import DestinationStationManager from "./components/listers/DestinationStationCards"
-import DestinationStationDetail from "./components/listers/DestinationStationDetail"
-import DestinationDestinationManager from "./components/listers/DestinationDestinationCards"
-import DestinationDestinationDetail from "./components/listers/DestinationDestinationDetail"
-
-import StationInfoListView from "./components/StationInfoListView"
-import StationInfoListViewDetail from "./components/StationInfoListViewDetail"
-import GpsInfoListView from "./components/GpsInfoListView"
-import GpsInfoListViewDetail from "./components/GpsInfoListViewDetail"
 import LostserviceInsuranceManager from "./components/listers/LostserviceInsuranceCards"
 import LostserviceInsuranceDetail from "./components/listers/LostserviceInsuranceDetail"
 import LostservicePhoneChangeManager from "./components/listers/LostservicePhoneChangeCards"
 import LostservicePhoneChangeDetail from "./components/listers/LostservicePhoneChangeDetail"
 
+import PhoneDestinationManager from "./components/listers/PhoneDestinationCards"
+import PhoneDestinationDetail from "./components/listers/PhoneDestinationDetail"
 import PhonePhoneManager from "./components/listers/PhonePhoneCards"
 import PhonePhoneDetail from "./components/listers/PhonePhoneDetail"
 
+import GpsInfoListView from "./components/GpsInfoListView"
+import GpsInfoListViewDetail from "./components/GpsInfoListViewDetail"
 import PhoneInfoListView from "./components/PhoneInfoListView"
 import PhoneInfoListViewDetail from "./components/PhoneInfoListViewDetail"
 
@@ -43,47 +38,6 @@ export default new Router({
                 component: LostLostPhoneDetail
             },
 
-            {
-                path: '/destinations/stations',
-                name: 'DestinationStationManager',
-                component: DestinationStationManager
-            },
-            {
-                path: '/destinations/stations/:id',
-                name: 'DestinationStationDetail',
-                component: DestinationStationDetail
-            },
-            {
-                path: '/destinations/destinations',
-                name: 'DestinationDestinationManager',
-                component: DestinationDestinationManager
-            },
-            {
-                path: '/destinations/destinations/:id',
-                name: 'DestinationDestinationDetail',
-                component: DestinationDestinationDetail
-            },
-
-            {
-                path: '/destinations/stationInfoLists',
-                name: 'StationInfoListView',
-                component: StationInfoListView
-            },
-            {
-                path: '/destinations/stationInfoLists/:id',
-                name: 'StationInfoListViewDetail',
-                component: StationInfoListViewDetail
-            },
-            {
-                path: '/destinations/gpsInfoLists',
-                name: 'GpsInfoListView',
-                component: GpsInfoListView
-            },
-            {
-                path: '/destinations/gpsInfoLists/:id',
-                name: 'GpsInfoListViewDetail',
-                component: GpsInfoListViewDetail
-            },
             {
                 path: '/lostservices/insurances',
                 name: 'LostserviceInsuranceManager',
@@ -106,6 +60,16 @@ export default new Router({
             },
 
             {
+                path: '/phones/destinations',
+                name: 'PhoneDestinationManager',
+                component: PhoneDestinationManager
+            },
+            {
+                path: '/phones/destinations/:id',
+                name: 'PhoneDestinationDetail',
+                component: PhoneDestinationDetail
+            },
+            {
                 path: '/phones/phones',
                 name: 'PhonePhoneManager',
                 component: PhonePhoneManager
@@ -116,6 +80,16 @@ export default new Router({
                 component: PhonePhoneDetail
             },
 
+            {
+                path: '/phones/gpsInfoLists',
+                name: 'GpsInfoListView',
+                component: GpsInfoListView
+            },
+            {
+                path: '/phones/gpsInfoLists/:id',
+                name: 'GpsInfoListViewDetail',
+                component: GpsInfoListViewDetail
+            },
             {
                 path: '/phones/phoneInfoLists',
                 name: 'PhoneInfoListView',

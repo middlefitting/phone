@@ -31,12 +31,12 @@ spring:
         event-in:
           group: lost
 #<<< EDA / Topic Name
-          destination: untitled
+          destination: phone
 #>>> EDA / Topic Name
           contentType: application/json
         event-out:
 #<<< EDA / Topic Name
-          destination: untitled
+          destination: phone
 #>>> EDA / Topic Name
           contentType: application/json
 
@@ -75,10 +75,10 @@ spring:
       bindings:
         event-in:
           group: lost
-          destination: untitled
+          destination: phone
           contentType: application/json
         event-out:
-          destination: untitled
+          destination: phone
           contentType: application/json
 
 
