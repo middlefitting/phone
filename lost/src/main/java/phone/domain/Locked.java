@@ -13,9 +13,6 @@ public class Locked extends AbstractEvent {
 
     private Long id;
     private Long userId;
-    private String imei;
-    private String lostStatus;
-    private String imeiStatus;
     private String lockStatus;
     private Long phoneId;
 

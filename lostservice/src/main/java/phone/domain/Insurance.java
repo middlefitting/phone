@@ -27,18 +27,22 @@ public class Insurance {
 
     private String status;
 
-    @PostPersist
-    public void onPostPersist() {
-        InsuranceRequested insuranceRequested = new InsuranceRequested(this);
-        insuranceRequested.publishAfterCommit();
-    }
-
     public static InsuranceRepository repository() {
         InsuranceRepository insuranceRepository = LostserviceApplication.applicationContext.getBean(
             InsuranceRepository.class
         );
         return insuranceRepository;
     }
+
+    //<<< Clean Arch / Port Method
+    public void insuranceAccessRequest() {
+        //implement business logic here:
+
+        InsuranceAccessed insuranceAccessed = new InsuranceAccessed(this);
+        insuranceAccessed.publishAfterCommit();
+    }
+
+    //>>> Clean Arch / Port Method
 
     //<<< Clean Arch / Port Method
     public static void reportCancel(LostCancelRequested lostCancelRequested) {
@@ -62,6 +66,37 @@ public class Insurance {
 
             InsuranceCanceled insuranceCanceled = new InsuranceCanceled(insurance);
             insuranceCanceled.publishAfterCommit();
+
+         });
+        */
+
+    }
+
+    //>>> Clean Arch / Port Method
+    //<<< Clean Arch / Port Method
+    public static void insuranceRequest(
+        LostReportRequested lostReportRequested
+    ) {
+        //implement business logic here:
+
+        /** Example 1:  new item 
+        Insurance insurance = new Insurance();
+        repository().save(insurance);
+
+        InsuranceRequested insuranceRequested = new InsuranceRequested(insurance);
+        insuranceRequested.publishAfterCommit();
+        */
+
+        /** Example 2:  finding and process
+        
+
+        repository().findById(lostReportRequested.get???()).ifPresent(insurance->{
+            
+            insurance // do something
+            repository().save(insurance);
+
+            InsuranceRequested insuranceRequested = new InsuranceRequested(insurance);
+            insuranceRequested.publishAfterCommit();
 
          });
         */

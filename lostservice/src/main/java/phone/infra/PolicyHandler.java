@@ -57,5 +57,41 @@ public class PolicyHandler {
         // Sample Logic //
         PhoneChange.reportCancel(event);
     }
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='LostReportRequested'"
+    )
+    public void wheneverLostReportRequested_InsuranceRequest(
+        @Payload LostReportRequested lostReportRequested
+    ) {
+        LostReportRequested event = lostReportRequested;
+        System.out.println(
+            "\n\n##### listener InsuranceRequest : " +
+            lostReportRequested +
+            "\n\n"
+        );
+
+        // Sample Logic //
+        Insurance.insuranceRequest(event);
+    }
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='LostReportRequested'"
+    )
+    public void wheneverLostReportRequested_PhoneChangeRequest(
+        @Payload LostReportRequested lostReportRequested
+    ) {
+        LostReportRequested event = lostReportRequested;
+        System.out.println(
+            "\n\n##### listener PhoneChangeRequest : " +
+            lostReportRequested +
+            "\n\n"
+        );
+
+        // Sample Logic //
+        PhoneChange.phoneChangeRequest(event);
+    }
 }
 //>>> Clean Arch / Inbound Adaptor

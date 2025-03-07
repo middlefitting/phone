@@ -19,5 +19,30 @@ public class PhoneChangeController {
 
     @Autowired
     PhoneChangeRepository phoneChangeRepository;
+
+    @RequestMapping(
+        value = "/phoneChanges/{id}/phonechangeaccess",
+        method = RequestMethod.PUT,
+        produces = "application/json;charset=UTF-8"
+    )
+    public PhoneChange phoneChangeAccess(
+        @PathVariable(value = "id") Long id,
+        HttpServletRequest request,
+        HttpServletResponse response
+    ) throws Exception {
+        System.out.println(
+            "##### /phoneChange/phoneChangeAccess  called #####"
+        );
+        Optional<PhoneChange> optionalPhoneChange = phoneChangeRepository.findById(
+            id
+        );
+
+        optionalPhoneChange.orElseThrow(() -> new Exception("No Entity Found"));
+        PhoneChange phoneChange = optionalPhoneChange.get();
+        phoneChange.phoneChangeAccess();
+
+        phoneChangeRepository.save(phoneChange);
+        return phoneChange;
+    }
 }
 //>>> Clean Arch / Inbound Adaptor

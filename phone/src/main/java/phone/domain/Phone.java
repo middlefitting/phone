@@ -43,8 +43,6 @@ public class Phone {
 
         PhoneStatusUpdated phoneStatusUpdated = new PhoneStatusUpdated(phone);
         phoneStatusUpdated.publishAfterCommit();
-        PhoneStatusUpdated phoneStatusUpdated = new PhoneStatusUpdated(phone);
-        phoneStatusUpdated.publishAfterCommit();
         */
 
         /** Example 2:  finding and process
@@ -55,8 +53,6 @@ public class Phone {
             phone // do something
             repository().save(phone);
 
-            PhoneStatusUpdated phoneStatusUpdated = new PhoneStatusUpdated(phone);
-            phoneStatusUpdated.publishAfterCommit();
             PhoneStatusUpdated phoneStatusUpdated = new PhoneStatusUpdated(phone);
             phoneStatusUpdated.publishAfterCommit();
 
@@ -76,8 +72,6 @@ public class Phone {
 
         PhoneStatusUpdated phoneStatusUpdated = new PhoneStatusUpdated(phone);
         phoneStatusUpdated.publishAfterCommit();
-        PhoneStatusUpdated phoneStatusUpdated = new PhoneStatusUpdated(phone);
-        phoneStatusUpdated.publishAfterCommit();
         */
 
         /** Example 2:  finding and process
@@ -88,8 +82,6 @@ public class Phone {
             phone // do something
             repository().save(phone);
 
-            PhoneStatusUpdated phoneStatusUpdated = new PhoneStatusUpdated(phone);
-            phoneStatusUpdated.publishAfterCommit();
             PhoneStatusUpdated phoneStatusUpdated = new PhoneStatusUpdated(phone);
             phoneStatusUpdated.publishAfterCommit();
 
@@ -109,8 +101,6 @@ public class Phone {
 
         PhoneStatusUpdated phoneStatusUpdated = new PhoneStatusUpdated(phone);
         phoneStatusUpdated.publishAfterCommit();
-        PhoneStatusUpdated phoneStatusUpdated = new PhoneStatusUpdated(phone);
-        phoneStatusUpdated.publishAfterCommit();
         */
 
         /** Example 2:  finding and process
@@ -121,8 +111,6 @@ public class Phone {
             phone // do something
             repository().save(phone);
 
-            PhoneStatusUpdated phoneStatusUpdated = new PhoneStatusUpdated(phone);
-            phoneStatusUpdated.publishAfterCommit();
             PhoneStatusUpdated phoneStatusUpdated = new PhoneStatusUpdated(phone);
             phoneStatusUpdated.publishAfterCommit();
 

@@ -27,20 +27,22 @@ public class PhoneChange {
 
     private String status;
 
-    @PostPersist
-    public void onPostPersist() {
-        PhoneChangeRequested phoneChangeRequested = new PhoneChangeRequested(
-            this
-        );
-        phoneChangeRequested.publishAfterCommit();
-    }
-
     public static PhoneChangeRepository repository() {
         PhoneChangeRepository phoneChangeRepository = LostserviceApplication.applicationContext.getBean(
             PhoneChangeRepository.class
         );
         return phoneChangeRepository;
     }
+
+    //<<< Clean Arch / Port Method
+    public void phoneChangeAccess() {
+        //implement business logic here:
+
+        PhoneChangeAccess phoneChangeAccess = new PhoneChangeAccess(this);
+        phoneChangeAccess.publishAfterCommit();
+    }
+
+    //>>> Clean Arch / Port Method
 
     //<<< Clean Arch / Port Method
     public static void reportCancel(LostCancelRequested lostCancelRequested) {
@@ -64,6 +66,37 @@ public class PhoneChange {
 
             PhoneChangeCanceled phoneChangeCanceled = new PhoneChangeCanceled(phoneChange);
             phoneChangeCanceled.publishAfterCommit();
+
+         });
+        */
+
+    }
+
+    //>>> Clean Arch / Port Method
+    //<<< Clean Arch / Port Method
+    public static void phoneChangeRequest(
+        LostReportRequested lostReportRequested
+    ) {
+        //implement business logic here:
+
+        /** Example 1:  new item 
+        PhoneChange phoneChange = new PhoneChange();
+        repository().save(phoneChange);
+
+        PhoneChangeRequested phoneChangeRequested = new PhoneChangeRequested(phoneChange);
+        phoneChangeRequested.publishAfterCommit();
+        */
+
+        /** Example 2:  finding and process
+        
+
+        repository().findById(lostReportRequested.get???()).ifPresent(phoneChange->{
+            
+            phoneChange // do something
+            repository().save(phoneChange);
+
+            PhoneChangeRequested phoneChangeRequested = new PhoneChangeRequested(phoneChange);
+            phoneChangeRequested.publishAfterCommit();
 
          });
         */

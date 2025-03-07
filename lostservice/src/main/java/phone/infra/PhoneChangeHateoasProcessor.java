@@ -12,6 +12,15 @@ public class PhoneChangeHateoasProcessor
 
     @Override
     public EntityModel<PhoneChange> process(EntityModel<PhoneChange> model) {
+        model.add(
+            Link
+                .of(
+                    model.getRequiredLink("self").getHref() +
+                    "/phonechangeaccess"
+                )
+                .withRel("phonechangeaccess")
+        );
+
         return model;
     }
 }
