@@ -22,6 +22,10 @@
         data: () => ({
             headers: [
                 { text: "id", value: "id" },
+                { text: "time", value: "time" },
+                { text: "x", value: "x" },
+                { text: "y", value: "y" },
+                { text: "phoneId", value: "phoneId" },
             ],
             gpsInfoList : [],
         }),

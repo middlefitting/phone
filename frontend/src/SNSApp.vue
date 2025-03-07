@@ -82,6 +82,16 @@
                     >
                         Phone
                     </v-list-item>
+                    <v-list-item
+                        class="px-2"
+                        key="gpsInfoLists"
+                        to="/phones/gpsInfoLists"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        GpsInfoList
+                    </v-list-item>
                 </v-list>
             </v-navigation-drawer>
         </div>
@@ -170,6 +180,13 @@ export default {
                 description: 'phone을 관리하는 화면입니다.', 
                 key: 'phones', 
                 route: '/phones/phones',
+                ImageUrl: '',
+            },
+            { 
+                title: 'GpsInfoList', 
+                description: 'GPSInfoList을 관리하는 화면입니다.', 
+                key: 'gpsInfoLists', 
+                route: '/phones/gpsInfoLists',
                 ImageUrl: '',
             },
             

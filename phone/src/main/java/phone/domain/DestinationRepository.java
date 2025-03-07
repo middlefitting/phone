@@ -14,11 +14,4 @@ import phone.domain.*;
     path = "destinations"
 )
 public interface DestinationRepository
-    extends PagingAndSortingRepository<Destination, Long> {
-    @Query(
-        value = "select destination " +
-        "from Destination destination " +
-        "where(:id is null or destination.id = :id) and (:time is null or destination.time = :time) and (:x is null or destination.x like %:x%) and (:y is null or destination.y like %:y%)"
-    )
-    Destination gpsInfoList(Long id, Date time, String x, String y);
-}
+    extends PagingAndSortingRepository<Destination, Long> {}

@@ -15,6 +15,7 @@ public class GpsInfoSaved extends AbstractEvent {
     private Date time;
     private String x;
     private String y;
+    private Long phoneId;
 
     public GpsInfoSaved(Destination aggregate) {
         super(aggregate);
